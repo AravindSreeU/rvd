@@ -130,12 +130,13 @@
           const groupUrl = "https://wa.me/919994959363?text=";
           let message = "";
           let orderDetails = [];
-      
+
+          // Collecting selected items and their quantities
           document.querySelectorAll('.item input[type="checkbox"]').forEach(checkbox => {
             if (checkbox.checked) {
               const label = document.querySelector(`label[for="${checkbox.id}"]`).innerText;
               const quantityInput = document.getElementById(`quantity_${checkbox.id}`);
-              let quantity = quantityInput.value || 1;
+              let quantity = quantityInput.value || 1; // Default to 1 if no quantity is provided
               message += `${label}, Qty: ${quantity}\n`;
               orderDetails.push({ item: label, quantity });
             }
